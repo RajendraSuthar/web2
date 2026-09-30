@@ -1,13 +1,14 @@
 <?php
 // Demo request form handler (index.html #demoForm).
-// Validates the submission, verifies reCAPTCHA, and emails it to MAIL_TO.
+// Validates the submission, verifies reCAPTCHA, and emails it (HTML) to MAIL_TO / MAIL_CC.
+// Same recipients and email layout as the old site's contact-us.php.
 // Always responds with JSON: { "success": bool, "message": string }
 
 // ---- Settings ----
-const MAIL_TO          = 'rajendra@octopod.co.in';       // inbox that receives demo requests (testing)
-const MAIL_CC          = '';                             // optional, comma-separated: 'a@x.com, b@y.com'
+const MAIL_TO          = 'sales@studentink.co.in';       // inbox that receives demo requests
+const MAIL_CC          = 'nihar@studentink.co.in';       // optional, comma-separated: 'a@x.com, b@y.com'
 const MAIL_FROM        = 'no-reply@studentink.co.in';    // must be an address on your own domain
-const RECAPTCHA_SECRET = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'; // TODO: Google's test secret — replace with your own before going live
+const RECAPTCHA_SECRET = '6Lde2n8rAAAAAM7o9ra4WXpUzwdM7iclSamuGMS8'; // pairs with data-sitekey in index.html
 
 date_default_timezone_set('Asia/Kolkata');
 header('Content-Type: application/json; charset=utf-8');
@@ -86,23 +87,34 @@ if ($token === '' || !verify_recaptcha($token)) {
     respond(422, false, "Please confirm you're not a robot.");
 }
 
-$subject = 'New demo request: ' . $institution;
-$body = "New demo request from studentink.co.in\n\n"
-      . "Name:        $name\n"
-      . "Phone:       $phone\n"
-      . "Email:       $email\n"
-      . "Institution: $institution\n"
-      . "Type:        $type\n\n"
-      . "Message:\n" . ($message !== '' ? $message : '(none)') . "\n\n"
-      . '---' . "\n"
-      . 'Submitted: ' . date('d M Y, h:i A T') . "\n"
-      . 'IP: ' . ($_SERVER['REMOTE_ADDR'] ?? 'unknown') . "\n";
+function h(string $value): string
+{
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}
+
+$subject = 'New Inquiry From ' . $name;
+$body = "<html><body style=\"margin:0;padding:40px;background:#f4f7f9;font-family:Arial,sans-serif;font-size:15px;\">"
+      . "<div style=\"max-width:600px;margin:auto;background:#ffffff;padding:30px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.1);text-align:center;\">"
+      . "<div style=\"margin-bottom:20px;\"><img src=\"https://octopods3.s3.ap-south-1.amazonaws.com/placeholder/studentink_logo.png\" alt=\"Studentink\" style=\"width:220px;\"></div>"
+      . "<h2 style=\"color:#5ba2ef;margin:0 0 10px;font-weight:700;\">New Inquiry Received!</h2>"
+      . "<div style=\"text-align:left;background:#f9f9f9;padding:15px;border-radius:8px;margin-top:20px;\">"
+      . '<p><strong>Name:</strong> ' . h($name) . '</p>'
+      . '<p><strong>Email:</strong> <a href="mailto:' . h($email) . '" style="color:#000;text-decoration:none;">' . h($email) . '</a></p>'
+      . '<p><strong>Phone:</strong> ' . h($phone) . '</p>'
+      . '<p><strong>Institution:</strong> ' . h($institution) . '</p>'
+      . '<p><strong>Institution type:</strong> ' . h($type) . '</p>'
+      . '<p><strong>Message:</strong><br>' . ($message !== '' ? nl2br(h($message)) : '(none)') . '</p>'
+      . '</div>'
+      . '<p style="margin-top:20px;font-size:12px;color:#95a5a6;">Submitted ' . date('d M Y, h:i A T')
+      . ' · IP ' . h($_SERVER['REMOTE_ADDR'] ?? 'unknown') . '<br>'
+      . 'Copyright &copy; 2018 - ' . date('Y') . ' Jaynik Eduserve Private Limited | All Rights Reserved</p>'
+      . '</div></body></html>';
 
 $headers = [
     'From: Studentink Website <' . MAIL_FROM . '>',
     'Reply-To: ' . $email,
     'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
+    'Content-Type: text/html; charset=UTF-8',
 ];
 if (MAIL_CC !== '') {
     $headers[] = 'Cc: ' . MAIL_CC;
@@ -121,4 +133,4 @@ if (!$sent) {
     respond(500, false, 'Sorry, we could not send your request. Please try again in a moment.');
 }
 
-respond(200, true, 'Thank you! Your demo request has been received.');
+respond(200, true, 'Thank you for requesting a demo, you will get a call in the next 24 hours.');

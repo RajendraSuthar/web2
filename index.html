@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ==================== GOOGLE ANALYTICS (GA4) ==================== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XSD2H9QBLB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XSD2H9QBLB');
+</script>
+
 <title>School, College & University ERP Software in India | Studentink</title>
 <meta name="description" content="Studentink is AI-powered school, college & university ERP software trusted by 2,700+ institutions in India — manage admissions, fee collection, academics, examinations, HR and communication on one platform.">
 <meta name="theme-color" content="#0a0e27">
@@ -858,8 +868,8 @@
         <input type="text" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off">
 
         <div class="captcha-wrap">
-          <!-- TODO: replace data-sitekey (and RECAPTCHA_SECRET in contact.php) with your own keys from google.com/recaptcha/admin (register domain: studentink.co.in) before going live. These are Google's public test keys. -->
-          <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback="onCaptchaSuccess" data-expired-callback="onCaptchaReset" data-error-callback="onCaptchaReset"></div>
+          <!-- reCAPTCHA v2 site key (same key pair as RECAPTCHA_SECRET in contact.php) -->
+          <div class="g-recaptcha" data-sitekey="6Lde2n8rAAAAAJI4HkQGxAL97deTtkA0h069Uuj9" data-callback="onCaptchaSuccess" data-expired-callback="onCaptchaReset" data-error-callback="onCaptchaReset"></div>
         </div>
         <div class="captcha-error" id="formError" role="alert"></div>
 
