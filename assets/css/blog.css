@@ -95,6 +95,14 @@ header{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:r
 .article strong{color:var(--text-white);font-weight:700}
 .article ol li strong{display:block;margin-bottom:4px}
 .article-foot{margin-top:44px;padding-top:28px;border-top:1px solid var(--border)}
+.article a{color:var(--primary-light);text-decoration:underline;text-underline-offset:3px}
+.article a:hover{color:#fff}
+
+/* LEGAL PAGES (terms, privacy, refunds, account deletion) */
+.article.legal{padding-bottom:96px}
+.article.legal h2{font-size:1.3rem;margin:36px 0 12px}
+.article.legal h2:first-child{margin-top:0}
+.article.legal h3{font-size:1.05rem;margin:24px 0 10px;color:var(--primary-light)}
 
 /* CTA */
 .cta{padding:0 0 96px}
@@ -154,6 +162,8 @@ footer{padding:60px 0 30px;border-top:1px solid var(--border);background:var(--b
   .article h2{font-size:1.35rem;margin-top:34px}
   .article p,.article ul,.article ol{font-size:.98rem}
   .article .lead{font-size:1.06rem}
+  .article.legal{padding-bottom:60px}
+  .article.legal h2{font-size:1.15rem;margin-top:30px}
   .post-body{padding:22px 18px}
   .cta{padding-bottom:60px}
   .cta-box{padding:40px 24px}
