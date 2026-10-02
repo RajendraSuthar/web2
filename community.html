@@ -6,12 +6,7 @@
 
 <!-- ==================== GOOGLE ANALYTICS (GA4) ==================== -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSD2H9QBLB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XSD2H9QBLB');
-</script>
+<script src="assets/js/analytics.js"></script>
 
 <!-- ==================== SEO ==================== -->
 <!-- URLs are relative; assets/js/blog.js makes them absolute for whatever domain serves the page -->
@@ -116,7 +111,7 @@
         <h1>Welcome to <span class="gradient-text">Studentink Community!</span></h1>
         <p>Get the latest update on what is new with Studentink. Stay updated and make the most of it!</p>
         <div class="btns">
-          <a href="#updates" class="btn btn-primary">See Updates &amp; New Features ↓</a>
+          <a data-ga="See Updates" href="#updates" class="btn btn-primary">See Updates &amp; New Features ↓</a>
           <a href="#blog" class="btn btn-ghost">Read the Blog</a>
         </div>
       </div>
@@ -204,19 +199,19 @@
 <section class="section">
   <div class="wrap">
     <div class="feature-grid">
-      <a class="feature" href="#updates">
+      <a data-ga="Tile Product Updates" class="feature" href="#updates">
         <span class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/><path d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z"/></svg></span>
         <div><h3>Product Updates</h3><p>New features and improvements, as soon as they ship.</p></div>
       </a>
-      <a class="feature" href="#updates">
+      <a data-ga="Tile Feature Videos" class="feature" href="#updates">
         <span class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="15" height="14" rx="2"/><path d="M17 10l5-3v10l-5-3z"/></svg></span>
         <div><h3>Feature Videos</h3><p>Short walkthroughs that show exactly how each feature works.</p></div>
       </a>
-      <a class="feature" href="#blog">
+      <a data-ga="Tile Insights Articles" class="feature" href="#blog">
         <span class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
         <div><h3>Insights &amp; Articles</h3><p>Perspectives on OBE, NEP 2020 and running institutions better.</p></div>
       </a>
-      <a class="feature" href="#support">
+      <a data-ga="Tile Help Support" class="feature" href="#support">
         <span class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span>
         <div><h3>Help &amp; Support</h3><p>Questions about an update? Our support team is one email away.</p></div>
       </a>
@@ -246,7 +241,7 @@
             <source src="https://octopods3.s3.ap-south-1.amazonaws.com/placeholder/student_global_search.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
           </video>
-          <button type="button" class="video-cover" aria-label="Play video: Student Global Search">
+          <button data-ga="Video Global Search" type="button" class="video-cover" aria-label="Play video: Student Global Search">
             <svg viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs><linearGradient id="gs-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient><radialGradient id="gs-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#8b5cf6" stop-opacity=".22"/><stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/></radialGradient><pattern id="gs-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke="#3b82f6" stroke-opacity=".07"/></pattern></defs>
             <rect width="640" height="360" fill="#141b30"/>
@@ -303,7 +298,7 @@
             <source src="https://octopods3.s3.ap-south-1.amazonaws.com/placeholder/student_quick_admission.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
           </video>
-          <button type="button" class="video-cover" aria-label="Play video: Same name error check">
+          <button data-ga="Video Same Name Check" type="button" class="video-cover" aria-label="Play video: Same name error check">
             <svg viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs><linearGradient id="sn-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient><radialGradient id="sn-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#8b5cf6" stop-opacity=".22"/><stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/></radialGradient><pattern id="sn-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke="#3b82f6" stroke-opacity=".07"/></pattern></defs>
             <rect width="640" height="360" fill="#141b30"/>
@@ -383,7 +378,7 @@
     ================================================================= -->
     <div class="post-grid">
 
-      <a class="post" href="blog/bloomtaxonomy.html">
+      <a data-ga="Blog Blooms Taxonomy" class="post" href="blog/bloomtaxonomy.html">
         <div class="post-media illus"><span class="post-cat">OBE</span>
           <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <ellipse cx="110" cy="142" rx="104" ry="5" fill="#0a0e27" fill-opacity=".6"/>
@@ -421,7 +416,7 @@
         </div>
       </a>
 
-      <a class="post" href="blog/pivotalrole.html">
+      <a data-ga="Blog OBE NEP 2020" class="post" href="blog/pivotalrole.html">
         <div class="post-media illus alt"><span class="post-cat">OBE</span>
           <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs><linearGradient id="nep-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ef4444"/></linearGradient></defs>
@@ -458,7 +453,7 @@
       <!-- Next posts go here — copy a block above -->
 
       <!-- Keep this "suggest a topic" card last -->
-      <a class="post" href="mailto:support@studentink.zohodesk.in?subject=Blog%20topic%20suggestion">
+      <a data-ga="Blog Suggest a Topic" class="post" href="mailto:support@studentink.zohodesk.in?subject=Blog%20topic%20suggestion">
         <div class="post-media illus alt2"><span class="post-cat">Community</span>
           <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs><linearGradient id="sg-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#10b981"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs>
@@ -497,7 +492,7 @@
         <p class="sub">Questions about a new feature or update? Reach out to Studentink support or log in to your account.</p>
         <div class="btns">
           <a href="mailto:support@studentink.zohodesk.in" class="btn btn-primary">Contact Support →</a>
-          <a href="https://www.octopod.co.in/login" class="btn btn-ghost">Login</a>
+          <a data-ga="Support Log in" href="https://www.octopod.co.in/login" class="btn btn-ghost">Login</a>
         </div>
       </div>
       <figure class="cta-art c-illus" aria-hidden="true">
@@ -549,9 +544,9 @@
       </div>
       <div class="foot-col">
         <h5>Platform</h5>
-        <a href="index.html#products">School Administration</a>
-        <a href="index.html#products">Exam & OBE Software</a>
-        <a href="index.html#products">Fee Management Software</a>
+        <a data-ga="School Admin" href="index.html#products">School Administration</a>
+        <a data-ga="Exam and OBE" href="index.html#products">Exam & OBE Software</a>
+        <a data-ga="Fee Management" href="index.html#products">Fee Management Software</a>
         <a href="index.html#products">CRM + Social App</a>
         <a href="index.html#whitelabel">White-label App</a>
       </div>
@@ -560,10 +555,10 @@
         <a href="index.html#about">About us</a>
         <a href="community.html#blog">Blog</a>
         <a href="https://octopod.co.in/" target="_blank" rel="noopener">Community</a>
-        <a href="terms-conditions.html">Terms &amp; Conditions</a>
-        <a href="user-account-deletion-policy.html">User Account Deletion Policy</a>
+        <a data-ga="Terms" href="terms-conditions.html">Terms &amp; Conditions</a>
+        <a data-ga="Account Deletion" href="user-account-deletion-policy.html">User Account Deletion Policy</a>
         <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="refunds-cancellations.html">Refunds &amp; Cancellations</a>
+        <a data-ga="Refunds" href="refunds-cancellations.html">Refunds &amp; Cancellations</a>
         <a href="index.html#demo">Contact</a>
       </div>
     </div>

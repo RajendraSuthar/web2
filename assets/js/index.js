@@ -49,6 +49,8 @@
         if (res.ok && json.success) {
           form.style.display = 'none';
           success.classList.add('show');
+          // analytics.js sends this as "Studentink New - Demo Form Submitted"
+          if (window.trackEvent) trackEvent('Demo Form Submitted', { institution_type: form.elements.type.value });
           return;
         }
         showError(json.message || GENERIC_ERROR);
