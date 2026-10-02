@@ -75,6 +75,27 @@ header{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:r
 .readmore{color:var(--primary-light);font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
 .post:hover .readmore{gap:10px}
 
+/* ARTICLE (blog/<post>.html) */
+.article-hero{padding:72px 0 56px}
+.article-hero h1{font-size:2.6rem;max-width:900px;margin:18px auto 16px}
+.article-hero .post-cat{display:inline-block;position:relative;background:rgba(59,130,246,.15);border:1px solid var(--border);color:var(--primary-light)}
+.back-link{display:table;margin:0 auto 26px;position:relative;color:var(--text-muted);font-size:.9rem;font-weight:500;transition:color .2s}
+.back-link:hover{color:var(--primary-light)}
+.article-meta{position:relative;color:var(--text-muted);font-size:.92rem}
+.article{max-width:812px;padding-top:56px;padding-bottom:24px}
+.article-cover{max-width:420px;margin:0 auto 44px}
+.article-cover img{display:block;width:100%;height:auto;border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.article h2{font-size:1.7rem;margin:44px 0 16px}
+.article h2:first-of-type{margin-top:0}
+.article p,.article ul,.article ol{color:var(--text-light);font-size:1.05rem;margin-bottom:20px}
+.article .lead{font-size:1.2rem;font-weight:300;color:var(--text-white);margin-bottom:36px}
+.article ul,.article ol{padding-left:24px}
+.article li{margin-bottom:12px;padding-left:4px}
+.article li::marker{color:var(--primary-light);font-weight:700}
+.article strong{color:var(--text-white);font-weight:700}
+.article ol li strong{display:block;margin-bottom:4px}
+.article-foot{margin-top:44px;padding-top:28px;border-top:1px solid var(--border)}
+
 /* CTA */
 .cta{padding:0 0 96px}
 .cta-box{background:var(--gradient);border-radius:24px;padding:70px 50px;text-align:center;position:relative;overflow:hidden}
@@ -106,6 +127,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--border);background:var(--b
   .menu-btn{display:block}
   .page-hero h1{font-size:2.6rem}
   .post-grid,.update-grid{grid-template-columns:1fr}
+  .article-hero h1{font-size:2.1rem}
   .foot-grid{grid-template-columns:1fr;gap:30px}
 }
 @media(max-width:640px){
@@ -125,6 +147,13 @@ footer{padding:60px 0 30px;border-top:1px solid var(--border);background:var(--b
   .update-grid{gap:20px}
   .update-body{padding:22px 18px}
   .post-grid{padding:0 0 60px;gap:20px}
+  .article-hero{padding:48px 0 40px}
+  .article-hero h1{font-size:1.6rem}
+  .article{padding-top:36px}
+  .article-cover{margin-bottom:32px}
+  .article h2{font-size:1.35rem;margin-top:34px}
+  .article p,.article ul,.article ol{font-size:.98rem}
+  .article .lead{font-size:1.06rem}
   .post-body{padding:22px 18px}
   .cta{padding-bottom:60px}
   .cta-box{padding:40px 24px}

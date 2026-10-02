@@ -14,13 +14,14 @@
 </script>
 
 <!-- ==================== SEO ==================== -->
+<!-- URLs are relative; assets/js/blog.js makes them absolute for whatever domain serves the page -->
 <title>Studentink Community — Latest Updates, Features & Blog</title>
 <meta name="description" content="Welcome to Studentink Community! Get the latest update on what is new with Studentink — new features like Student Global Search and articles on outcome-based education (OBE) and NEP 2020.">
 <meta name="keywords" content="Studentink community, Studentink updates, new features, student global search, education blog, OBE, outcome based education, Bloom's taxonomy, NEP 2020, Studentink blog">
 <meta name="author" content="Jaynik Eduserve Private Limited">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0a0e27">
-<link rel="canonical" href="https://studentink.co.in/blog.html">
+<link rel="canonical" href="community.html">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
@@ -32,34 +33,34 @@
 <meta property="og:site_name" content="Studentink">
 <meta property="og:title" content="Studentink Community — Latest Updates & Blog">
 <meta property="og:description" content="Get the latest update on what is new with Studentink. Stay updated and make the most of it!">
-<meta property="og:url" content="https://studentink.co.in/blog.html">
-<meta property="og:image" content="https://studentink.co.in/assets/images/studentink-og.png">
+<meta property="og:url" content="community.html">
+<meta property="og:image" content="assets/images/studentink-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Studentink Community — Latest Updates & Blog">
 <meta name="twitter:description" content="Get the latest update on what is new with Studentink. Stay updated and make the most of it!">
-<meta name="twitter:image" content="https://studentink.co.in/assets/images/studentink-og.png">
+<meta name="twitter:image" content="assets/images/studentink-og.png">
 
 <!-- Structured data: Blog + posts -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Blog",
-  "name": "Studentink Blog",
-  "url": "https://studentink.co.in/blog.html",
+  "name": "Studentink Community",
+  "url": "community.html",
   "publisher": {
     "@type": "Organization",
     "name": "Studentink",
     "legalName": "Jaynik Eduserve Private Limited",
-    "logo": "https://studentink.co.in/assets/images/studentink-mark.png"
+    "logo": "assets/images/studentink-mark.png"
   },
   "blogPost": [
     {
       "@type": "BlogPosting",
       "headline": "The Role of Bloom's Taxonomy in Outcome-Based Education (OBE)",
-      "url": "https://www.octopod.co.in/blog/bloomtaxonomy",
+      "url": "blog/bloomtaxonomy.html",
       "author": { "@type": "Person", "name": "Mrunal Sheth" },
       "datePublished": "2025-07-20",
       "articleSection": "OBE"
@@ -67,7 +68,7 @@
     {
       "@type": "BlogPosting",
       "headline": "The Pivotal Role of Outcome-Based Education in India's National Education Policy 2020",
-      "url": "https://www.octopod.co.in/blog/pivotalrole",
+      "url": "blog/pivotalrole.html",
       "datePublished": "2025-07-21",
       "articleSection": "OBE"
     }
@@ -85,21 +86,21 @@
 <!-- NAV -->
 <header>
   <div class="wrap nav">
-    <a href="https://studentink.co.in/" class="logo" aria-label="Studentink">
+    <a href="index.html" class="logo" aria-label="Studentink">
       <img src="assets/images/logo.svg" alt="Studentink" width="151" height="32">
     </a>
     <nav class="nav-links">
-      <a href="https://studentink.co.in/">Home</a>
-      <a href="https://studentink.co.in/#solutions">Solutions</a>
-      <a href="https://studentink.co.in/#roles">Roles</a>
-      <a href="https://studentink.co.in/#products">Platform</a>
-      <a href="https://studentink.co.in/#packages">Pricing</a>
-      <a href="blog.html">Community</a>
-      <a href="https://studentink.co.in/#about">About</a>
+      <a href="index.html">Home</a>
+      <a href="index.html#solutions">Solutions</a>
+      <a href="index.html#roles">Roles</a>
+      <a href="index.html#products">Platform</a>
+      <a href="index.html#packages">Pricing</a>
+      <a href="community.html">Community</a>
+      <a href="index.html#about">About</a>
     </nav>
     <div class="nav-cta">
       <a href="https://octopod.co.in/login" class="signin">Sign in</a>
-      <a href="https://studentink.co.in/#demo" class="btn btn-primary">Book a demo →</a>
+      <a href="index.html#demo" class="btn btn-primary">Book a demo →</a>
     </div>
     <button class="menu-btn" aria-label="menu">☰</button>
   </div>
@@ -174,7 +175,9 @@
          1. Copy one entire <a class="post"> ... </a> block below.
          2. Paste it as the FIRST card so newest appears first.
          3. Update:
-            - href       → the full www.octopod.co.in/blog/... URL of the post
+            - href       → blog/<slug>.html — the post's own page. To create it,
+                           copy blog/bloomtaxonomy.html, rename it, and change the
+                           <head> SEO block, header text, cover image and article body
             - post-media → optional class alt / alt2 / alt3 for colour variety
             - post-cat   → category label (OBE, Policy, Product, Admissions...)
             - post-meta  → date · category
@@ -184,7 +187,7 @@
     ================================================================= -->
     <div class="post-grid">
 
-      <a class="post" href="https://www.octopod.co.in/blog/bloomtaxonomy">
+      <a class="post" href="blog/bloomtaxonomy.html">
         <div class="post-media"><span class="post-cat">OBE</span></div>
         <div class="post-body">
           <div class="post-meta">20 July 2025 · OBE</div>
@@ -194,7 +197,7 @@
         </div>
       </a>
 
-      <a class="post" href="https://www.octopod.co.in/blog/pivotalrole">
+      <a class="post" href="blog/pivotalrole.html">
         <div class="post-media alt"><span class="post-cat">OBE</span></div>
         <div class="post-body">
           <div class="post-meta">21 July 2025 · OBE</div>
@@ -229,7 +232,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="https://studentink.co.in/" class="logo" aria-label="Studentink">
+        <a href="index.html" class="logo" aria-label="Studentink">
           <img src="assets/images/logo.svg" alt="Studentink" width="151" height="32">
         </a>
         <p>The AI-powered education OS. Trusted by 2,700+ academies to run admissions, academics, finance, examinations and communication on one platform.</p>
@@ -241,25 +244,25 @@
       </div>
       <div class="foot-col">
         <h5>Solutions</h5>
-        <a href="https://studentink.co.in/#solutions">Universities</a>
-        <a href="https://studentink.co.in/#solutions">Schools</a>
-        <a href="https://studentink.co.in/#solutions">Colleges</a>
-        <a href="https://studentink.co.in/#products">Coaching</a>
+        <a href="index.html#solutions">Universities</a>
+        <a href="index.html#solutions">Schools</a>
+        <a href="index.html#solutions">Colleges</a>
+        <a href="index.html#products">Coaching</a>
       </div>
       <div class="foot-col">
         <h5>Platform</h5>
-        <a href="https://studentink.co.in/#products">School Administration</a>
-        <a href="https://studentink.co.in/#products">Exam & OBE Software</a>
-        <a href="https://studentink.co.in/#products">Fee Management Software</a>
-        <a href="https://studentink.co.in/#products">CRM + Social App</a>
-        <a href="https://studentink.co.in/#whitelabel">White-label App</a>
+        <a href="index.html#products">School Administration</a>
+        <a href="index.html#products">Exam & OBE Software</a>
+        <a href="index.html#products">Fee Management Software</a>
+        <a href="index.html#products">CRM + Social App</a>
+        <a href="index.html#whitelabel">White-label App</a>
       </div>
       <div class="foot-col">
         <h5>Company</h5>
-        <a href="https://studentink.co.in/#about">About us</a>
-        <a href="blog.html">Blog</a>
+        <a href="index.html#about">About us</a>
+        <a href="community.html#blog">Blog</a>
         <a href="https://octopod.co.in/" target="_blank" rel="noopener">Community</a>
-        <a href="https://studentink.co.in/#demo">Contact</a>
+        <a href="index.html#demo">Contact</a>
       </div>
     </div>
     <div class="foot-bottom">
