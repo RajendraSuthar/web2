@@ -64,6 +64,24 @@
     });
   })();
 
+  // highlight the menu link of the section being read: the last one whose top has passed 40% of the screen
+  (function () {
+    const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+    const sections = links.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    if (!sections.length) return;
+
+    function update() {
+      const line = window.innerHeight * 0.4;
+      let current = sections[0];
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top <= line) current = section;
+      });
+      links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+
   document.querySelector('.menu-btn')?.addEventListener('click', () => {
     const l = document.querySelector('.nav-links');
     const open = l.style.display === 'flex';
