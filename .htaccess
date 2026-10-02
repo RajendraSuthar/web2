@@ -1,0 +1,35 @@
+# Studentink main site (studentink.octopod.co.in): static HTML pages that replace the old WordPress site.
+
+# ---- Always serve fresh pages (kept from the old .htaccess) ----
+<IfModule mod_headers.c>
+<FilesMatch "\.(html|htm|php|xml)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+</FilesMatch>
+</IfModule>
+
+# ---- Old URLs -> new pages (301) ----
+# Each rule covers the pre-WordPress .php page and the WordPress slug (with or without a trailing slash),
+# so old Google results, the Google Play account-deletion link and octopod.co.in's footer links keep working.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# legal pages
+RewriteRule ^(terms-conditions/?|terms-of-service\.php)$ /terms-conditions.html [R=301,L]
+RewriteRule ^(privacy-policy/?|privacy-policy\.php)$ /privacy-policy.html [R=301,L]
+RewriteRule ^(refunds-cancellations/?|cancellation\.php)$ /refunds-cancellations.html [R=301,L]
+RewriteRule ^(user-account-deletion-policy/?|user-account\.php)$ /user-account-deletion-policy.html [R=301,L]
+
+# role pages -> "Roles" section of the home page (NE keeps the # unescaped)
+RewriteRule ^(owners|administrators-registrars|controller-of-examination|coe|marketing|admissions|cfo-solutions)(/|\.php)?$ /#roles [R=301,L,NE]
+
+# other old pages -> matching home-page section
+RewriteRule ^institute(/|\.php)?$ /#solutions [R=301,L,NE]
+RewriteRule ^crm(/|\.php)?$ /#products [R=301,L,NE]
+RewriteRule ^packages(/|\.php)?$ /#packages [R=301,L,NE]
+RewriteRule ^about-us(/|\.php)?$ /#about [R=301,L,NE]
+RewriteRule ^contact-us(/|\.php)?$ /#demo [R=301,L,NE]
+RewriteRule ^index\.php$ / [R=301,L]
+</IfModule>
