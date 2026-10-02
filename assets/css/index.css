@@ -193,8 +193,18 @@ header {
 }
 
 .nav-cta { display: flex; gap: 14px; align-items: center; }
-.signin { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
-.signin:hover { color: white; }
+.signin {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 26px;
+  border-radius: 50px;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  color: white;
+  font-size: 0.94rem;
+  font-weight: 700;
+  transition: all 0.25s;
+}
+.signin:hover { border-color: var(--primary); background: rgba(59, 130, 246, 0.12); }
 .nav-links .nav-login { display: none; }
 .menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
@@ -1088,6 +1098,19 @@ footer {
 }
 
 /* RESPONSIVE */
+/* the full menu plus both header buttons need ~1120px: tighten it first, then switch to the ☰ menu */
+@media (max-width: 1240px) {
+  .nav-links { gap: 22px; }
+  .signin { padding: 14px 20px; }
+  .nav-cta .btn { padding: 14px 22px; }
+}
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+  .menu-btn { display: block; }
+  /* keep the header buttons on the right, next to the ☰ button */
+  .nav-cta { margin-left: auto; }
+  .menu-btn { margin-left: 14px; }
+}
 @media (max-width: 968px) {
   .hero h1 { font-size: 2.6rem; }
   h2 { font-size: 1.9rem; }
@@ -1114,14 +1137,17 @@ footer {
   .logo img, .logo svg { height: 34px; }
   .signin { display: none; }
   .nav-links .nav-login {
-    display: inline-flex;
-    align-items: center;
-    margin-top: 6px;
-    padding: 10px 26px;
+    display: flex;
+    align-self: stretch;
+    justify-content: center;
+    margin-top: 8px;
+    padding: 14px 26px;
     border-radius: 50px;
-    border: 1px solid rgba(59, 130, 246, 0.5);
+    border: 1px solid rgba(59, 130, 246, 0.6);
+    background: rgba(59, 130, 246, 0.12);
     color: white;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 700;
   }
   .nav-cta .btn { padding: 10px 16px; font-size: 0.85rem; }
   section { padding: 60px 0; }

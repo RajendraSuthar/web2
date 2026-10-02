@@ -35,8 +35,8 @@ header{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:r
 .nav-links a.active{color:#fff;position:relative}
 .nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:var(--gradient)}
 .nav-cta{display:flex;gap:14px;align-items:center}
-.signin{font-size:.9rem;color:var(--text-muted);font-weight:500}
-.signin:hover{color:#fff}
+.signin{display:inline-flex;align-items:center;padding:14px 26px;border-radius:50px;border:1px solid rgba(59,130,246,.5);color:#fff;font-size:.94rem;font-weight:700;transition:all .25s}
+.signin:hover{border-color:var(--primary);background:rgba(59,130,246,.12)}
 .nav-links .nav-login{display:none}
 .menu-btn{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
 
@@ -178,6 +178,9 @@ footer{padding:60px 0 30px;border-top:1px solid var(--border);background:var(--b
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:24px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem}
 
 /* RESPONSIVE */
+/* the full menu plus both header buttons need ~1120px: tighten it first, then switch to the ☰ menu */
+@media(max-width:1240px){.nav-links{gap:22px}.signin{padding:14px 20px}.nav-cta .btn{padding:14px 22px}}
+@media(max-width:1100px){.nav-links{display:none}.menu-btn{display:block}.nav-cta{margin-left:auto}}
 @media(max-width:968px){
   .nav-links{display:none}
   .menu-btn{display:block}
@@ -200,7 +203,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--border);background:var(--b
   .nav{padding:14px 16px}
   .logo img{height:34px}
   .signin{display:none}
-  .nav-links .nav-login{display:inline-flex;align-items:center;margin-top:6px;padding:10px 26px;border-radius:50px;border:1px solid rgba(59,130,246,.5);color:#fff;font-weight:600}
+  .nav-links .nav-login{display:flex;align-self:stretch;justify-content:center;margin-top:8px;padding:14px 26px;border-radius:50px;border:1px solid rgba(59,130,246,.6);background:rgba(59,130,246,.12);color:#fff;font-size:1rem;font-weight:700}
   .nav-cta .btn{padding:10px 16px;font-size:.85rem}
   .page-hero{padding:60px 0 40px}
   .page-hero h1{font-size:2rem}
