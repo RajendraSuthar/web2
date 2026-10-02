@@ -64,6 +64,21 @@
     });
   })();
 
+  // reCAPTCHA draws a fixed 304x78 box; shrink it to fit narrow phones
+  (function () {
+    const wrap = document.querySelector('.captcha-wrap');
+    const widget = wrap && wrap.querySelector('.g-recaptcha');
+    if (!widget) return;
+
+    function fit() {
+      const scale = Math.min(1, wrap.clientWidth / 304);
+      widget.style.transform = scale < 1 ? 'scale(' + scale + ')' : '';
+      wrap.style.height = scale < 1 ? Math.ceil(78 * scale) + 'px' : '';
+    }
+    fit();
+    window.addEventListener('resize', fit);
+  })();
+
   // highlight the menu link of the section being read: the last one whose top has passed 40% of the screen
   (function () {
     const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];

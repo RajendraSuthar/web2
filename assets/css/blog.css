@@ -37,6 +37,7 @@ header{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:r
 .nav-cta{display:flex;gap:14px;align-items:center}
 .signin{font-size:.9rem;color:var(--text-muted);font-weight:500}
 .signin:hover{color:#fff}
+.nav-links .nav-login{display:none}
 .menu-btn{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
 
 /* HERO */
@@ -199,6 +200,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--border);background:var(--b
   .nav{padding:14px 16px}
   .logo img{height:34px}
   .signin{display:none}
+  .nav-links .nav-login{display:inline-flex;align-items:center;margin-top:6px;padding:10px 26px;border-radius:50px;border:1px solid rgba(59,130,246,.5);color:#fff;font-weight:600}
   .nav-cta .btn{padding:10px 16px;font-size:.85rem}
   .page-hero{padding:60px 0 40px}
   .page-hero h1{font-size:2rem}

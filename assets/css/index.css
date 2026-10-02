@@ -195,6 +195,7 @@ header {
 .nav-cta { display: flex; gap: 14px; align-items: center; }
 .signin { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
 .signin:hover { color: white; }
+.nav-links .nav-login { display: none; }
 .menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
 /* HERO */
@@ -912,13 +913,15 @@ header {
   gap: 50px;
   align-items: center;
 }
+/* grid items must not grow past their column (the 304px reCAPTCHA box would otherwise push the form off-screen) */
+.demo-grid > * { min-width: 0; }
 .demo-copy { position: relative; }
 .demo-copy .eyebrow { display: block; }
 .demo-copy h2 { text-align: left; }
 .demo-copy .sub { text-align: left; margin: 12px 0 0 !important; }
 .demo-points { list-style: none; margin-top: 26px; display: flex; flex-direction: column; gap: 12px; position: relative; }
-.demo-points li { display: flex; align-items: center; gap: 10px; color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; }
-.demo-points svg { flex-shrink: 0; }
+.demo-points li { display: flex; align-items: flex-start; gap: 10px; color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; }
+.demo-points svg { flex-shrink: 0; margin-top: 3px; }
 
 .demo-form {
   position: relative;
@@ -991,7 +994,9 @@ header {
 .demo-form .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
 .demo-form .form-note { text-align: center; font-size: 0.78rem; color: rgba(255, 255, 255, 0.8); }
 
-.captcha-wrap { display: flex; transform: scale(1); transform-origin: left; }
+.captcha-wrap { display: flex; width: 100%; }
+/* scaled down by index.js when the form is narrower than the widget's fixed 304px */
+.captcha-wrap .g-recaptcha { transform-origin: 0 0; }
 .captcha-error {
   display: none;
   color: #fecaca;
@@ -1014,8 +1019,8 @@ header {
 
 @media (max-width: 860px) {
   .demo-grid { grid-template-columns: 1fr; gap: 36px; }
-  .demo-copy h2, .demo-copy .sub { text-align: center; }
-  .demo-points { align-items: center; }
+  .demo-copy .eyebrow, .demo-copy h2, .demo-copy .sub { text-align: center; }
+  .demo-points { width: fit-content; max-width: 100%; margin-left: auto; margin-right: auto; }
   .demo-form .form-row-split { grid-template-columns: 1fr; }
 }
 .cta-box .btn-ghost:hover { background: rgba(255, 255, 255, 0.1); }
@@ -1108,6 +1113,16 @@ footer {
   .nav { padding: 14px 16px; }
   .logo img, .logo svg { height: 34px; }
   .signin { display: none; }
+  .nav-links .nav-login {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 6px;
+    padding: 10px 26px;
+    border-radius: 50px;
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    color: white;
+    font-weight: 600;
+  }
   .nav-cta .btn { padding: 10px 16px; font-size: 0.85rem; }
   section { padding: 60px 0; }
   .hero h1, .hero-split h1 { font-size: 2rem; }
@@ -1115,6 +1130,12 @@ footer {
   .stat .num { font-size: 1.4rem; }
   .cta-box { padding: 40px 24px; }
   .cta-box h2 { font-size: 1.8rem; }
+  .cta-box.demo-grid { padding: 32px 16px; gap: 28px; }
+  .demo-form { padding: 20px 16px; border-radius: 14px; }
+  /* 16px stops iOS Safari from zooming in when a field is tapped */
+  .demo-form input,
+  .demo-form select,
+  .demo-form textarea { font-size: 16px; }
 }
 @media (max-width: 359px) {
   .nav-cta { display: none; }
