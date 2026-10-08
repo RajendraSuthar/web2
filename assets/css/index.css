@@ -977,6 +977,10 @@ header {
 }
 .demo-form select:invalid { color: rgba(255, 255, 255, 0.68); }
 .demo-form select option { color: #1a2244; }
+.demo-form select:disabled { opacity: 0.6; cursor: not-allowed; }
+.form-agree { display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: rgba(255, 255, 255, 0.85); cursor: pointer; }
+.demo-form .form-agree input { width: 18px; height: 18px; flex-shrink: 0; margin: 1px 0 0; padding: 0; box-shadow: none; accent-color: white; cursor: pointer; }
+.form-agree a { color: white; text-decoration: underline; }
 .demo-form textarea { resize: vertical; min-height: 80px; }
 
 .field { position: relative; }
