@@ -1,6 +1,8 @@
 /* Google Analytics (GA4) for every page of the new Studentink website.
    The old site (octopod.co.in) reports to the same GA property, so every event sent from here
    is named "Studentink New - …" and carries site_version + the content group "New Website".
+   A page can use its own name prefix with <html data-ga-prefix="…"> (the Champions page uses
+   "Studentink Champions : "); the 40-character limit includes the prefix.
 
    Event names (GA → Reports → Engagement → Events):
      Studentink New - Page Home            a page was opened (name from <html data-ga-page="Home">)
@@ -11,7 +13,7 @@
 (function () {
   const GA_ID = 'G-XSD2H9QBLB';
   const SITE_VERSION = 'studentink-new-2026';
-  const PREFIX = 'Studentink New - ';
+  const PREFIX = document.documentElement.dataset.gaPrefix || 'Studentink New - ';
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { window.dataLayer.push(arguments); };
