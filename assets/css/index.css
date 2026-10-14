@@ -170,7 +170,7 @@ header {
 
 .nav-links {
   display: flex;
-  gap: 22px;
+  gap: 20px;
   align-items: center;
 }
 .nav-links a {
@@ -180,6 +180,8 @@ header {
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--primary-light); }
+.nav-links .nav-champions img { height: 40px; width: auto; display: block; transition: transform 0.2s; }
+.nav-links .nav-champions:hover img { transform: scale(1.06); }
 .nav-links a.active { color: #fff; position: relative; }
 .nav-links a.active::after {
   content: '';
