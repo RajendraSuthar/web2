@@ -153,6 +153,17 @@ header{position:sticky;top:0;z-index:60;background:rgba(22,34,140,.96);backdrop-
 .insta-qr{display:block;width:180px;max-width:60%;height:auto;margin:0 auto 10px;background:#fff;border-radius:16px;padding:8px;box-shadow:0 10px 26px rgba(0,0,0,.2)}
 .insta-scan{font-size:.85rem;opacity:.9;margin-bottom:20px}
 
+/* INSTAGRAM POSTS SLIDER */
+.ig-feed{margin-top:48px}
+.ig-title{font-size:1.6rem;color:var(--blue);margin-bottom:20px}
+.ig-slider{position:relative}
+.ig-track{display:flex;align-items:flex-start;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 16px;scrollbar-width:none}
+.ig-track::-webkit-scrollbar{display:none}
+.ig-slide{flex:0 0 340px;scroll-snap-align:start}
+.ig-nav{position:absolute;top:40%;z-index:2;width:44px;height:44px;border-radius:50%;border:none;background:#fff;color:var(--blue);font-size:1.7rem;line-height:1;cursor:pointer;box-shadow:0 6px 18px rgba(22,34,140,.22)}
+.ig-nav:hover{background:var(--yellow)}
+.ig-prev{left:-12px}.ig-next{right:-12px}
+
 /* FOOTER */
 footer{background:var(--blue-2);color:rgba(255,255,255,.75);padding:44px 0;text-align:center}
 footer .logo{justify-content:center;margin-bottom:14px}
@@ -162,6 +173,8 @@ footer .links a:hover{color:var(--yellow)}
 footer .fine{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:10px}
 
 @media(max-width:900px){
+  .ig-slide{flex-basis:326px}
+  .ig-nav{display:none}
   .nav-links{display:none}.menu-btn{display:block}
   .hero h1{font-size:2.6rem}
   .comp-grid,.tool-grid,.how-grid{grid-template-columns:1fr}
@@ -344,6 +357,27 @@ footer .fine{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:10px}
       <div class="insta-scan">Scan to follow, or tap below</div>
       <a href="https://www.instagram.com/studentink.champions/" target="_blank" rel="noopener" data-ga="Instagram Follow" class="btn btn-insta">📸 Follow @studentink.champions</a>
     </div>
+
+    <!-- ============================================================
+         INSTAGRAM POSTS SLIDER — add one line per post, newest first.
+         Copy the link from Instagram (⋯ → Copy link) into data-post.
+         The slider stays hidden until at least one post is listed.
+    ============================================================ -->
+    <div class="ig-feed" hidden>
+      <h3 class="ig-title">Latest on Instagram</h3>
+      <div class="ig-slider">
+        <button class="ig-nav ig-prev" aria-label="Previous posts" data-ga="Insta Slider Prev">‹</button>
+        <div class="ig-track">
+          <div class="ig-slide" data-post="https://www.instagram.com/p/Deeg4R9DRbt/"></div>
+          <div class="ig-slide" data-post="https://www.instagram.com/p/DeegDsGjc3F/"></div>
+          <div class="ig-slide" data-post="https://www.instagram.com/p/DeeeuiSjeK8/"></div>
+          <div class="ig-slide" data-post="https://www.instagram.com/p/DeeddRMjVsb/"></div>
+          <div class="ig-slide" data-post="https://www.instagram.com/p/DeeiAdQDV0E/"></div>
+          <div class="ig-slide" data-post="https://www.instagram.com/p/DebG3npDVeR/"></div>
+        </div>
+        <button class="ig-nav ig-next" aria-label="Next posts" data-ga="Insta Slider Next">›</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -368,6 +402,48 @@ footer .fine{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:10px}
     const open=l.style.display==='flex';
     l.style.cssText=open?'':'display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:#16228c;padding:20px 24px;gap:16px;border-top:1px solid rgba(255,255,255,.12)';
   });
+
+  // Instagram posts slider: turns each listed post into Instagram's official embed, loads
+  // Instagram's script only when the section is near the screen, then slides every 4 seconds
+  // (paused while the visitor's mouse is on it)
+  (()=>{
+    const feed=document.querySelector('.ig-feed');
+    const slides=feed?[...feed.querySelectorAll('.ig-slide[data-post]')]:[];
+    if(!slides.length) return;
+    feed.hidden=false;
+    slides.forEach(slide=>{
+      const q=document.createElement('blockquote');
+      q.className='instagram-media';
+      q.dataset.instgrmPermalink=slide.dataset.post;
+      q.dataset.instgrmVersion='14';
+      q.innerHTML='<a target="_blank" rel="noopener">View this post on Instagram</a>';
+      q.firstChild.href=slide.dataset.post;
+      slide.append(q);
+    });
+    const track=feed.querySelector('.ig-track');
+    const go=dir=>{
+      const max=track.scrollWidth-track.clientWidth, step=slides[0].offsetWidth+20;
+      if(dir>0&&track.scrollLeft>=max-5) track.scrollTo({left:0});
+      else if(dir<0&&track.scrollLeft<=5) track.scrollTo({left:max});
+      else track.scrollBy({left:dir*step});
+    };
+    feed.querySelector('.ig-prev').addEventListener('click',()=>go(-1));
+    feed.querySelector('.ig-next').addEventListener('click',()=>go(1));
+    let paused=false;
+    track.addEventListener('mouseenter',()=>paused=true);
+    track.addEventListener('mouseleave',()=>paused=false);
+    track.addEventListener('touchstart',()=>paused=true,{passive:true});
+    new IntersectionObserver((entries,observer)=>{
+      if(!entries[0].isIntersecting) return;
+      observer.disconnect();
+      const script=document.createElement('script');
+      script.async=true;
+      script.src='https://www.instagram.com/embed.js';
+      document.body.append(script);
+      if(!matchMedia('(prefers-reduced-motion: reduce)').matches)
+        setInterval(()=>{if(!paused&&!document.hidden) go(1);},4000);
+    },{rootMargin:'300px'}).observe(feed);
+  })();
 </script>
 
 </body>
