@@ -220,3 +220,20 @@
     const open = l.style.display === 'flex';
     l.style.cssText = open ? '' : 'display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;background:#141b30;padding:22px 26px;gap:18px;border-bottom:1px solid rgba(59,130,246,.2);z-index:99;';
   });
+
+  // Solutions menu: with a mouse it opens on hover and "Solutions" goes to the section;
+  // in the ☰ menu and on touch screens a tap on "Solutions" opens and closes the list instead
+  document.querySelectorAll('.drop-toggle').forEach((toggle) => {
+    toggle.addEventListener('click', (e) => {
+      if (!matchMedia('(max-width: 1180px), (hover: none)').matches) return;
+      e.preventDefault();
+      toggle.setAttribute('aria-expanded', toggle.parentElement.classList.toggle('open'));
+    });
+  });
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.has-drop.open').forEach((drop) => {
+      if (drop.contains(e.target)) return;
+      drop.classList.remove('open');
+      drop.querySelector('.drop-toggle').setAttribute('aria-expanded', 'false');
+    });
+  });

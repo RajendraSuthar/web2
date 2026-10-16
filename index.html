@@ -32,7 +32,21 @@
     </a>
     <nav class="nav-links">
       <a href="#top" class="active" aria-current="page">Home</a>
-      <a href="#solutions">Solutions</a>
+      <div class="has-drop">
+        <a href="#solutions" class="drop-toggle" aria-haspopup="true" aria-expanded="false">Solutions <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="dropdown">
+          <span class="drop-label">By institution</span>
+          <a href="for-schools.html">For Schools</a>
+          <a href="for-colleges.html">For Colleges</a>
+          <a href="for-universities.html">For Universities</a>
+          <span class="drop-label">By role</span>
+          <a href="for-cfo.html">For CFO</a>
+          <a href="for-registrar.html">For Registrar</a>
+          <a href="for-owner.html">For Owner</a>
+          <a data-ga="For CoE" href="for-controller-of-examination.html">For Controller of Examination</a>
+          <a data-ga="For Admissions" href="for-admissions-marketing.html">For Admissions &amp; Marketing</a>
+        </div>
+      </div>
       <a href="#roles">Roles</a>
       <a href="#products">Platform</a>
       <a href="#packages">Pricing</a>
@@ -279,7 +293,7 @@
         </div>
         <div class="tag">University ERP</div>
         <p>University ERP software for large-scale operations — financial dashboards, compliance tools and customizable settings.</p>
-        <a data-ga="Read more University" href="#products" class="readmore">Read more →</a>
+        <a data-ga="Read more University" href="for-universities.html" class="readmore">Read more →</a>
       </div>
       <div class="solution-card sch">
         <div class="solution-art" aria-hidden="true">
@@ -310,7 +324,7 @@
         </div>
         <div class="tag">School ERP Software</div>
         <p>School & college management software with integrated HR, library, fee collection and communication tools.</p>
-        <a data-ga="Read more School" href="#products" class="readmore">Read more →</a>
+        <a data-ga="Read more School" href="for-schools.html" class="readmore">Read more →</a>
       </div>
       <div class="solution-card col">
         <div class="solution-art" aria-hidden="true">
@@ -355,7 +369,7 @@
         </div>
         <div class="tag">College ERP</div>
         <p>College ERP software to manage enrollments, academic calendars and exam planning with ease.</p>
-        <a data-ga="Read more College" href="#products" class="readmore">Read more →</a>
+        <a data-ga="Read more College" href="for-colleges.html" class="readmore">Read more →</a>
       </div>
     </div>
   </div>
@@ -371,7 +385,7 @@
       <p class="sub">No matter the role or responsibility, Studentink is built to help each team succeed.</p>
     </div>
     <div class="role-grid">
-      <div class="role-card">
+      <a class="role-card" data-ga="Role Registrar" href="for-registrar.html">
         <div class="role-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
             <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
@@ -382,8 +396,8 @@
           <div class="who">Administrator / Registrar</div>
           <p>Manage student & staff data effortlessly and boost institutional growth.</p>
         </div>
-      </div>
-      <div class="role-card">
+      </a>
+      <a class="role-card" data-ga="Role Owner" href="for-owner.html">
         <div class="role-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
             <path d="M12 2l3 6 6 1-4 5 1 7-6-3-6 3 1-7-4-5 6-1z"/>
@@ -393,8 +407,8 @@
           <div class="who">Owner / Trustee</div>
           <p>A single source of truth for institutional performance and expansion.</p>
         </div>
-      </div>
-      <div class="role-card">
+      </a>
+      <a class="role-card" data-ga="Role CoE" href="for-controller-of-examination.html">
         <div class="role-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
             <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
@@ -406,8 +420,8 @@
           <div class="who">Controller of Examination</div>
           <p>Track exams and student performance with automated, auditable workflows.</p>
         </div>
-      </div>
-      <div class="role-card">
+      </a>
+      <a class="role-card" data-ga="Role Admissions" href="for-admissions-marketing.html">
         <div class="role-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
             <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4z"/>
@@ -417,8 +431,8 @@
           <div class="who">Marketing & Admissions</div>
           <p>A powerful CRM and branded social app to boost enrollment — streamline admissions end to end.</p>
         </div>
-      </div>
-      <div class="role-card">
+      </a>
+      <a class="role-card" data-ga="Role CFO" href="for-cfo.html">
         <div class="role-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
             <line x1="12" y1="1" x2="12" y2="23"/>
@@ -429,7 +443,7 @@
           <div class="who">CFO</div>
           <p>Optimize and automate finance across the entire institution.</p>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1556,9 +1570,9 @@
       </div>
       <div class="foot-col">
         <h5>Solutions</h5>
-        <a href="#solutions">Universities</a>
-        <a href="#solutions">Schools</a>
-        <a href="#solutions">Colleges</a>
+        <a href="for-universities.html">Universities</a>
+        <a href="for-schools.html">Schools</a>
+        <a href="for-colleges.html">Colleges</a>
         <a href="#products">Coaching</a>
       </div>
       <div class="foot-col">
