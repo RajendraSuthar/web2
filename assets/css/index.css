@@ -170,7 +170,7 @@ header {
 
 .nav-links {
   display: flex;
-  gap: 18px;
+  gap: 16px;
   align-items: center;
 }
 .nav-links a {
@@ -248,6 +248,9 @@ header {
 }
 .nav-links .dropdown a { display: block; padding: 9px 14px; border-radius: 8px; white-space: nowrap; }
 .nav-links .dropdown a:hover { background: rgba(59, 130, 246, 0.12); color: #fff; }
+/* index.js marks "All platform modules" (#products) active while that section is read; no underline in the list */
+.nav-links .dropdown a.active { color: var(--text-light); }
+.nav-links .dropdown a.active::after { display: none; }
 
 /* HERO */
 .hero {
@@ -626,6 +629,7 @@ header {
   align-items: center;
 }
 .split-head .section-head { margin: 0; max-width: 560px; min-width: 0; }
+.section-head .section-link { margin-top: 20px; font-size: 0.95rem; }
 .split-head.flip .illus { order: -1; }
 .illus { margin: 0; min-width: 0; }
 .illus svg { display: block; width: 100%; height: auto; }
