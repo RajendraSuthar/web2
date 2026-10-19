@@ -199,6 +199,9 @@ header{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:r
 .store-btn:hover{border-color:var(--primary-light);background:rgba(59,130,246,.12)}
 .store-btn span{display:flex;flex-direction:column;line-height:1.15;font-size:.9rem;font-weight:700}
 .store-btn small{font-size:.62rem;font-weight:400;color:var(--text-light);text-transform:uppercase;letter-spacing:.04em}
+/* one app only (crm.html): a wide card, app details left, its features right */
+.app-card.app-single{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center;max-width:900px;margin:0 auto;padding:38px;border-color:rgba(139,92,246,.7);background:linear-gradient(180deg,rgba(59,130,246,.14),rgba(139,92,246,.06));box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.app-single .checklist{margin:0;padding:26px;border-radius:14px;background:rgba(10,14,39,.45);border:1px solid var(--border)}
 
 /* FEES MANAGEMENT PAGE (offer.html) */
 .fee-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -284,6 +287,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--border);background:var(--b
   .tally-split{grid-template-columns:1fr;gap:32px;padding:36px 28px}
   .testi-grid{grid-template-columns:1fr}
   .app-grid{grid-template-columns:1fr;max-width:560px;margin:0 auto}
+  .app-card.app-single{grid-template-columns:1fr;gap:26px;max-width:560px;padding:30px 24px}
   .cta-box.split{grid-template-columns:1fr;text-align:center;gap:30px}
   .cta-box.split .btns{justify-content:center}
   .cta-art svg{max-width:300px;margin:0 auto}
@@ -321,7 +325,8 @@ footer{padding:60px 0 30px;border-top:1px solid var(--border);background:var(--b
   .tally-card{padding:26px 20px}
   .tally-card b{font-size:2.8rem}
   .testi{padding:22px 18px}
-  .app-card{padding:22px 18px}
+  .app-card,.app-card.app-single{padding:22px 18px}
+  .app-single .checklist{padding:18px 16px}
   .cta.sol-cta{padding-top:48px}
   .feature-icon{margin-bottom:0}
   .section{padding-top:48px}
