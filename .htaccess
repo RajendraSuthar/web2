@@ -27,7 +27,7 @@ RewriteRule ^(owners|administrators-registrars|controller-of-examination|coe|mar
 
 # other old pages -> matching home-page section
 RewriteRule ^institute(/|\.php)?$ /#solutions [R=301,L,NE]
-RewriteRule ^crm(/|\.php)?$ /#products [R=301,L,NE]
+RewriteRule ^crm(/|\.php)?$ /crm.html [R=301,L]
 RewriteRule ^packages(/|\.php)?$ /#packages [R=301,L,NE]
 RewriteRule ^about-us(/|\.php)?$ /#about [R=301,L,NE]
 RewriteRule ^contact-us(/|\.php)?$ /#demo [R=301,L,NE]

@@ -632,7 +632,6 @@ header {
   align-items: center;
 }
 .split-head .section-head { margin: 0; max-width: 560px; min-width: 0; }
-.section-head .section-link { margin-top: 20px; font-size: 0.95rem; }
 .split-head.flip .illus { order: -1; }
 .illus { margin: 0; min-width: 0; }
 .illus svg { display: block; width: 100%; height: auto; }
