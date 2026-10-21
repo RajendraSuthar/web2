@@ -6,7 +6,7 @@
 
 <!-- ==================== GOOGLE ANALYTICS (GA4) ==================== -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSD2H9QBLB"></script>
-<script src="assets/js/analytics.js?v=20261019"></script>
+<script defer src="assets/js/analytics.js?v=20261019"></script>
 
 <!-- ==================== SEO ==================== -->
 <!-- Full https:// URLs: WhatsApp, LinkedIn and Facebook read these tags without running JavaScript -->
@@ -75,12 +75,9 @@
 }
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/roboto-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-<link rel="stylesheet" href="assets/css/index.css?v=20261021.2">
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<link rel="stylesheet" href="assets/css/index.css?v=20261021.3">
 </head>
 <body>
 
@@ -111,7 +108,7 @@
       <a data-ga="Menu CRM" href="crm.html">CRM</a>
       <a href="#packages">Pricing</a>
       <a href="https://octopod.co.in/">Community</a>
-      <a href="studentink-champions.html" class="nav-champions" data-ga="Champions"><img src="assets/champions/champions-logo-nav.png" alt="Studentink Champions" width="96" height="40"></a>
+      <a href="studentink-champions.html" class="nav-champions" data-ga="Champions"><img src="assets/champions/champions-logo-nav-96.png" srcset="assets/champions/champions-logo-nav-96.png 1x, assets/champions/champions-logo-nav-192.png 2x" alt="Studentink Champions" width="96" height="40"></a>
       <a href="#about">About</a>
       <a href="https://octopod.co.in/login" class="nav-login">Log in</a>
     </nav>
@@ -660,35 +657,35 @@
         <div class="ic">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
-        <h4>Automated Exam Mgmt</h4>
+        <h3>Automated Exam Mgmt</h3>
         <p>Saves 60–80% of staff time. Auto exam forms, hall tickets, scheduling.</p>
       </div>
       <div class="feat">
         <div class="ic">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h4>Secure & Error-Free</h4>
+        <h3>Secure & Error-Free</h3>
         <p>Role-based access, standardized workflows, single-point marks entry.</p>
       </div>
       <div class="feat">
         <div class="ic">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
-        <h4>OBE Attainment</h4>
+        <h3>OBE Attainment</h3>
         <p>CO-PO matrix automation, auto-calculated attainment, NAAC/NBA reports.</p>
       </div>
       <div class="feat">
         <div class="ic">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17l-5-5-4 4-3-3"/></svg>
         </div>
-        <h4>Real-Time Analytics</h4>
+        <h3>Real-Time Analytics</h3>
         <p>Student performance, data visualization, comprehensive dashboards.</p>
       </div>
       <div class="feat">
         <div class="ic">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="9 11 12 14 22 4"/></svg>
         </div>
-        <h4>Online MCQ Exam</h4>
+        <h3>Online MCQ Exam</h3>
         <p>Accurate digital assessment software.</p>
       </div>
     </div>
@@ -943,42 +940,42 @@
         <div class="mod-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
         </div>
-        <h4>CRM / Admissions</h4>
+        <h3>CRM / Admissions</h3>
         <p>Lead capture, applicant tracking and admissions management.</p>
       </div>
       <div class="mod">
         <div class="mod-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
         </div>
-        <h4>Fees & Finance</h4>
+        <h3>Fees & Finance</h3>
         <p>Day-to-day finance, reconciliation and reporting.</p>
       </div>
       <div class="mod">
         <div class="mod-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         </div>
-        <h4>Academy Management</h4>
+        <h3>Academy Management</h3>
         <p>Registrar and academic operations in one place.</p>
       </div>
       <div class="mod">
         <div class="mod-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </div>
-        <h4>HRMS & Payroll</h4>
+        <h3>HRMS & Payroll</h3>
         <p>From recruitment to payroll — fully automated.</p>
       </div>
       <div class="mod">
         <div class="mod-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         </div>
-        <h4>Exam & OBE</h4>
+        <h3>Exam & OBE</h3>
         <p>End-to-end examination and attainment reporting.</p>
       </div>
       <div class="mod">
         <div class="mod-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
-        <h4>Third-Party Integrations</h4>
+        <h3>Third-Party Integrations</h3>
         <p>Tally, UGC, payment gateways and more.</p>
       </div>
     </div>
@@ -1051,28 +1048,28 @@
         <div class="ic">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h4>Secure by design</h4>
+        <h3>Secure by design</h3>
         <p>Role-based access, audit trails and transparent reporting.</p>
       </div>
       <div class="sec">
         <div class="ic">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><polyline points="9 11 12 14 22 4"/></svg>
         </div>
-        <h4>Compliance-ready</h4>
+        <h3>Compliance-ready</h3>
         <p>NAAC, NBA, AICTE and UGC-aligned processes throughout.</p>
       </div>
       <div class="sec">
         <div class="ic">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11"/></svg>
         </div>
-        <h4>Proven at scale</h4>
+        <h3>Proven at scale</h3>
         <p>4M+ students and ₹6,000cr+ in fees processed to date.</p>
       </div>
       <div class="sec">
         <div class="ic">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
         </div>
-        <h4>A partner, not a vendor</h4>
+        <h3>A partner, not a vendor</h3>
         <p>An army of industry professionals behind your institution.</p>
       </div>
     </div>
@@ -1143,20 +1140,20 @@
         <div class="form-row-split">
           <div class="field">
             <svg class="field-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <select name="state" required>
+            <select name="state" aria-label="State" required>
               <option value="" disabled selected>Select state</option>
             </select>
           </div>
           <div class="field">
             <svg class="field-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1"/></svg>
-            <select name="city" required disabled>
+            <select name="city" aria-label="City" required disabled>
               <option value="" disabled selected>Select city</option>
             </select>
           </div>
         </div>
         <div class="field">
           <svg class="field-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
-          <select name="specialization" required>
+          <select name="specialization" aria-label="Product you're interested in" required>
             <option value="" disabled selected>Product you're interested in</option>
           </select>
         </div>
@@ -1166,7 +1163,7 @@
           <span>I agree to the <a href="terms-conditions.html" target="_blank" rel="noopener">Terms &amp; Conditions</a></span>
         </label>
 
-        <input type="text" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off">
+        <input type="text" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
 
         <div class="captcha-wrap">
           <!-- reCAPTCHA v2 site key of jeplcrm.octopod.co.in (the CRM API verifies the token with its secret); studentink.octopod.co.in must be in this key's domain list -->
@@ -1206,14 +1203,14 @@
         </div>
       </div>
       <div class="foot-col">
-        <h5>Solutions</h5>
+        <h2>Solutions</h2>
         <a href="for-universities.html">Universities</a>
         <a href="for-schools.html">Schools</a>
         <a href="for-colleges.html">Colleges</a>
         <a href="#products">Coaching</a>
       </div>
       <div class="foot-col">
-        <h5>Platform</h5>
+        <h2>Platform</h2>
         <a data-ga="School Admin" href="for-registrar.html">School Administration</a>
         <a data-ga="Exam and OBE" href="#products">Exam & OBE Software</a>
         <a data-ga="Fee Management" href="offer.html">Fee Management Software</a>
@@ -1222,7 +1219,7 @@
         <a data-ga="Mobile Apps" href="#apps">Mobile Apps</a>
       </div>
       <div class="foot-col">
-        <h5>Company</h5>
+        <h2>Company</h2>
         <a href="#about">About us</a>
         <a href="https://octopod.co.in/#blog">Blog</a>
         <a href="https://octopod.co.in/" target="_blank" rel="noopener">Community</a>
@@ -1240,7 +1237,7 @@
   </div>
 </footer>
 
-<script src="assets/js/index.js?v=20261019"></script>
+<script src="assets/js/index.js?v=20261021.3"></script>
 
 </body>
 </html>

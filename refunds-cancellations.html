@@ -6,7 +6,7 @@
 
 <!-- ==================== GOOGLE ANALYTICS (GA4) ==================== -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSD2H9QBLB"></script>
-<script src="assets/js/analytics.js?v=20261019"></script>
+<script defer src="assets/js/analytics.js?v=20261019"></script>
 
 <!-- ==================== SEO ==================== -->
 <!-- Full https:// URLs: WhatsApp, LinkedIn and Facebook read these tags without running JavaScript -->
@@ -38,10 +38,8 @@
 <meta name="twitter:description" content="Studentink cancellation and refund policy for fees, charges and donations paid through the platform.">
 <meta name="twitter:image" content="https://studentink.octopod.co.in/assets/images/og/home.jpg">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/blog.css?v=20261019">
+<link rel="preload" href="assets/fonts/roboto-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/blog.css?v=20261021.3">
 </head>
 <body>
 
@@ -72,7 +70,7 @@
       <a data-ga="Menu CRM" href="crm.html">CRM</a>
       <a href="index.html#packages">Pricing</a>
       <a href="https://octopod.co.in/">Community</a>
-      <a href="studentink-champions.html" class="nav-champions" data-ga="Champions"><img src="assets/champions/champions-logo-nav.png" alt="Studentink Champions" width="96" height="40"></a>
+      <a href="studentink-champions.html" class="nav-champions" data-ga="Champions"><img src="assets/champions/champions-logo-nav-96.png" srcset="assets/champions/champions-logo-nav-96.png 1x, assets/champions/champions-logo-nav-192.png 2x" alt="Studentink Champions" width="96" height="40"></a>
       <a href="index.html#about">About</a>
       <a href="https://octopod.co.in/login" class="nav-login">Log in</a>
     </nav>
@@ -119,14 +117,14 @@
         </div>
       </div>
       <div class="foot-col">
-        <h5>Solutions</h5>
+        <h2>Solutions</h2>
         <a href="for-universities.html">Universities</a>
         <a href="for-schools.html">Schools</a>
         <a href="for-colleges.html">Colleges</a>
         <a href="index.html#products">Coaching</a>
       </div>
       <div class="foot-col">
-        <h5>Platform</h5>
+        <h2>Platform</h2>
         <a data-ga="School Admin" href="for-registrar.html">School Administration</a>
         <a data-ga="Exam and OBE" href="index.html#products">Exam & OBE Software</a>
         <a data-ga="Fee Management" href="offer.html">Fee Management Software</a>
@@ -135,7 +133,7 @@
         <a data-ga="Mobile Apps" href="index.html#apps">Mobile Apps</a>
       </div>
       <div class="foot-col">
-        <h5>Company</h5>
+        <h2>Company</h2>
         <a href="index.html#about">About us</a>
         <a href="https://octopod.co.in/#blog">Blog</a>
         <a href="https://octopod.co.in/" target="_blank" rel="noopener">Community</a>

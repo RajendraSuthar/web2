@@ -73,7 +73,32 @@
         showError(LOAD_ERROR);
       }
     }
-    loadOptions();
+
+    // reCAPTCHA (~350 KB of JS) and the CRM option lists are only needed for this form, so they load when the
+    // form comes near the screen (or a field gets focus), not on page open. That keeps them out of the first paint.
+    // api.js draws the widget into .g-recaptcha by itself once it arrives; its callbacks are defined below.
+    let formStarted = false;
+    function startForm() {
+      if (formStarted) return;
+      formStarted = true;
+      loadOptions();
+      const captcha = document.createElement('script');
+      captcha.src = 'https://www.google.com/recaptcha/api.js';
+      captcha.async = true;
+      document.head.appendChild(captcha);
+    }
+    if ('IntersectionObserver' in window) {
+      const watcher = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          watcher.disconnect();
+          startForm();
+        }
+      }, { rootMargin: '600px 0px' });
+      watcher.observe(form);
+    } else {
+      startForm();
+    }
+    form.addEventListener('focusin', startForm);
 
     stateSelect.addEventListener('change', async function () {
       const stateId = stateSelect.value;

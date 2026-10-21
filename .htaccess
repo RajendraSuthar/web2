@@ -1,11 +1,20 @@
 # Studentink main site (studentink.octopod.co.in): static HTML pages that replace the old WordPress site.
 
-# ---- Always serve fresh pages (kept from the old .htaccess) ----
+# ---- Caching ----
 <IfModule mod_headers.c>
+# Pages: the browser re-checks with the server on every visit, so a new upload shows at once.
+# (no "no-store": that would stop the back/forward button from restoring the page instantly)
 <FilesMatch "\.(html|htm|php|xml)$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-    Header set Pragma "no-cache"
-    Header set Expires 0
+    Header set Cache-Control "no-cache, must-revalidate"
+</FilesMatch>
+# CSS/JS: every page links them as file.css?v=YYYYMMDD and the ?v= changes whenever the file changes,
+# so a changed file is a new URL. Keep them for a year. Remember to bump ?v= when editing a CSS/JS file.
+<FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000"
+</FilesMatch>
+# Images and fonts: not versioned, so 30 days (a replaced image can take up to 30 days to show for repeat visitors)
+<FilesMatch "\.(png|jpe?g|gif|webp|svg|ico|woff2?)$">
+    Header set Cache-Control "public, max-age=2592000"
 </FilesMatch>
 </IfModule>
 
