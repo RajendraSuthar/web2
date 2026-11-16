@@ -105,6 +105,33 @@ header{position:sticky;top:0;z-index:60;background:rgba(22,34,140,.96);backdrop-
 .comp .draw-tile .cat{font-weight:600;font-size:.95rem;opacity:.9}
 .comp-actions{padding:16px;display:flex;gap:12px;margin-top:auto}
 .comp-actions .btn{flex:1;justify-content:center;padding:13px 10px;font-size:.92rem;box-shadow:none}
+.btn.btn-disabled{background:#e6e7ef;color:#7d83a3;box-shadow:none;cursor:not-allowed}
+.btn.btn-disabled:hover{transform:none}
+/* registration dates under the poster; state classes: open / soon / upcoming / closed */
+.reg{margin:16px 16px 0;padding:14px;border-radius:16px;background:#f4f5fd;border:1.5px solid #e4e7f8}
+.reg-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.reg-title{font-family:var(--head);font-weight:600;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.reg-badge{font-family:var(--head);font-weight:600;font-size:.78rem;padding:4px 12px;border-radius:40px;background:#dcf5e6;color:#12803f;white-space:nowrap}
+.reg-dates{display:flex;align-items:center;gap:8px}
+.reg-date{flex:1;min-width:0;background:#fff;border-radius:12px;padding:8px 6px;text-align:center;box-shadow:0 2px 8px rgba(22,34,140,.06)}
+.reg-date span{display:block;font-size:.72rem;font-weight:500;color:var(--muted)}
+.reg-date b{display:block;font-family:var(--head);font-weight:600;font-size:1rem;color:var(--blue);white-space:nowrap}
+.reg-arrow{flex:none;color:var(--pink);font-weight:700}
+.reg-note{margin-top:10px;text-align:center;font-size:.85rem;font-weight:600;color:var(--blue)}
+.reg.soon{background:#fff2f7;border-color:#ffd3e4}
+.reg.soon .reg-badge{background:#ffdbe9;color:var(--pink-2)}
+.reg.soon .reg-note{color:var(--pink-2)}
+.reg.upcoming .reg-badge{background:#dff3fd;color:#0a78ad}
+.reg.closed{background:#f4f4f7;border-color:#e7e7ee}
+.reg.closed .reg-badge{background:#e6e7ee;color:#6b7090}
+.reg.closed .reg-date b{color:#8a90ad}
+/* placeholder cards while the championships load */
+.comp.comp-skeleton{aspect-ratio:1080/1350;box-shadow:none;background:linear-gradient(90deg,#eceefb 25%,#f6f7fd 50%,#eceefb 75%);background-size:200% 100%;animation:shimmer 1.4s linear infinite}
+.comp.comp-skeleton:hover{transform:none;border-color:transparent;box-shadow:none}
+@keyframes shimmer{to{background-position:-200% 0}}
+@media(prefers-reduced-motion:reduce){.comp.comp-skeleton{animation:none}}
+.load-msg{max-width:560px;margin:0 auto;text-align:center;color:var(--muted);background:#fff;border-radius:18px;padding:28px 22px;box-shadow:0 8px 24px rgba(22,34,140,.08)}
+.load-msg a{color:var(--pink);font-weight:600}
 
 /* PRACTICE */
 .practice{background:linear-gradient(180deg,#fff,#f0f2fc)}
@@ -115,9 +142,10 @@ header{position:sticky;top:0;z-index:60;background:rgba(22,34,140,.96);backdrop-
 .prep-block.reverse .prep-wrap{direction:rtl}
 .prep-block.reverse .prep-wrap>*{direction:ltr}
 .prep-wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:center}
+.prep-wrap.no-pic{grid-template-columns:1fr}
 .prep-pic{border-radius:20px;overflow:hidden;box-shadow:0 14px 34px rgba(22,34,140,.18)}
-.prep-pic img{width:100%;display:block}
-.tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
+.prep-pic img{width:100%;height:auto;display:block}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;margin-bottom:16px}
 .tool{background:#fff;border:2px solid #eceefb;border-radius:16px;padding:22px 18px;text-align:center;transition:.2s}
 .tool:hover{border-color:var(--cyan);transform:translateY(-4px)}
 .tool .t{font-family:var(--head);font-weight:600;color:var(--blue);font-size:1.02rem;margin-bottom:6px}
@@ -136,9 +164,16 @@ header{position:sticky;top:0;z-index:60;background:rgba(22,34,140,.96);backdrop-
 .step:nth-child(1) .n{background:var(--pink)}.step:nth-child(2) .n{background:var(--cyan)}.step:nth-child(3) .n{background:var(--green)}
 .step h3{font-size:1.2rem;color:var(--blue);margin-bottom:6px}
 .step p{color:var(--muted);font-size:.9rem}
-/* HOW TO PLAY (placeholder) */
+/* HOW TO PLAY: videos, or "Coming Soon" while there are none */
 #how-to-play{padding-top:0}
 #how-to-play .sec-title{margin-bottom:28px}
+.play-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px;max-width:960px;margin:0 auto}
+.play-grid.single{max-width:760px}
+.video-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(22,34,140,.1)}
+.video-card video{display:block;width:100%;aspect-ratio:16/9;background:var(--blue-2)}
+.video-card .vc-body{padding:16px 20px 20px}
+.video-card h3{font-size:1.15rem;color:var(--blue);margin-bottom:4px}
+.video-card p{color:var(--muted);font-size:.9rem}
 .play-box{max-width:760px;margin:0 auto;background:#fff;border:2px dashed var(--cyan);border-radius:22px;padding:40px 28px;text-align:center;box-shadow:0 8px 24px rgba(22,34,140,.08)}
 .play-box .soon{display:inline-block;background:var(--yellow);color:#1a1a00;font-family:var(--head);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;padding:12px 30px;border-radius:40px;font-size:1.1rem}
 .play-box h3{font-size:1.4rem;color:var(--blue);margin-bottom:8px}
@@ -229,100 +264,26 @@ footer .fine{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:10px}
     <p class="sec-sub">Pick a challenge, register, and get discovered. New championships are added regularly.</p>
 
     <!-- ============================================================
-         TO ADD A NEW CHAMPIONSHIP: copy one <div class="comp"> block.
-         - Poster card: put the full poster in <div class="pic"><img src="assets/champions/YOURPIC.jpg" alt="..."></div>
-         - Or a plain colour tile (no poster): use the <div class="draw-tile"> pattern.
-         - Buttons: keep "Register" (replace href with your real registration/payment link).
-           Add a "Prepare to Win" button ONLY if that championship has practice material
-           — link it to #practice (or a specific practice anchor).
+         Championships, their "Prepare to Win" packs, the How to Play videos and the
+         Instagram posts are NOT edited here: they are managed in octopod.co.in →
+         Faculty dashboard → Champions and loaded from CHAMPIONS_API (script at the end).
+         The images in assets/champions/ are still used by those records — keep them.
     ============================================================ -->
-    <div class="comp-grid">
-
-      <!-- Drawing Championship -->
-      <div class="comp">
-        <div class="pic"><img src="assets/champions/drawing.jpg" alt="Drawing Championship — open worldwide, ages 5 to 18+, prizes worth ₹15,000, ₹150 per student, bulk ₹600 for 5 students, last date 15 Nov 2026"></div>
-        <div class="comp-actions">
-          <a href="https://octopod.co.in/academy/forms/9f7a7ae58c8de1345d51bb55540bfcf6/82dc885dc5b914867acb43a79b0fc97f" data-ga="Drawing Register" class="btn btn-pink">Student Registration</a>
-          <!-- Bulk Registration hidden for now; uncomment to bring it back
-          <a href="https://www.octopod.co.in/academy/admission/step/9f7a7ae58c8de1345d51bb55540bfcf6/a2313aa07bf7956a2c42b7ac626e99e5" data-ga="Drawing Bulk Reg" class="btn btn-blue">Bulk Registration</a>
-          -->
-        </div>
-      </div>
-
-      <!-- Festivals Around the World Quiz -->
-      <div class="comp">
-        <div class="pic"><img src="assets/champions/school-quiz.jpg" alt="Festivals Around the World — online quiz championship, ages 8–14, quiz 29 Nov 2026, registration ₹100, prize ₹15,000"></div>
-        <div class="comp-actions">
-          <a href="https://octopod.co.in/academy/forms/9f7a7ae58c8de1345d51bb55540bfcf6/774891bef6c1398c2cd34df049019ac6" data-ga="Festival Register" class="btn btn-pink">Register</a>
-          <a href="#practice-festivals" data-ga="Festival Prepare" class="btn btn-blue">Prepare to Win</a>
-        </div>
-      </div>
-
-      <!-- Quiz for All -->
-      <div class="comp">
-        <div class="pic"><img src="assets/champions/college-quiz.jpg" alt="Online Quiz Championship — open to all age groups, 60 minutes, 60 questions, quiz 30 Nov 2026, registration ₹100, prize ₹15,000"></div>
-        <div class="comp-actions">
-          <a href="https://octopod.co.in/academy/forms/9f7a7ae58c8de1345d51bb55540bfcf6/a89aef80831aa02a8e4cc8f8605d0e6b" data-ga="College Register" class="btn btn-pink">Register</a>
-          <a href="#practice-brain" data-ga="College Prepare" class="btn btn-blue">Prepare to Win</a>
-        </div>
-      </div>
-
+    <div class="comp-grid" id="comp-grid" aria-busy="true">
+      <div class="comp comp-skeleton" aria-hidden="true"></div>
+      <div class="comp comp-skeleton" aria-hidden="true"></div>
+      <div class="comp comp-skeleton" aria-hidden="true"></div>
     </div>
+    <p class="load-msg" id="comp-msg" hidden></p>
   </div>
 </section>
 
-<!-- PRACTICE / PREPARE TO WIN -->
-<section class="practice" id="practice">
+<!-- PRACTICE / PREPARE TO WIN: one block per championship that has practice material (hidden when none) -->
+<section class="practice" id="practice" hidden>
   <div class="wrap">
     <h2 class="sec-title">📚 Prepare to Win</h2>
     <p class="sec-sub">Practise with our online question bank and mock quizzes — improve, build confidence, and be ready.</p>
-
-    <!-- ============================================================
-         Each championship links its "Prepare to Win" button to the matching
-         block below (by id). To add a new one, copy a <div class="prep-block">,
-         give it a unique id, set its image, and point the championship button to it.
-    ============================================================ -->
-
-    <!-- Prep block A — Festivals Around the World (School Quiz) -->
-    <div class="prep-block" id="practice-festivals">
-      <div class="prep-label">For: <b>Festivals Around the World</b> · School Quiz</div>
-      <div class="prep-wrap">
-        <div class="prep-pic"><img src="assets/champions/festival-teaser.jpg" alt="Guess the Festival — prepare with the online question bank and mock quizzes"></div>
-        <div>
-          <div class="tool-grid">
-            <div class="tool"><div class="t">Question Bank</div><div class="p">₹150</div></div>
-            <div class="tool"><div class="t">3 Mock Quizzes</div><div class="p">₹150</div></div>
-            <div class="tool"><div class="t">5 Mock Quizzes</div><div class="p">₹250</div></div>
-          </div>
-          <div class="bundle">
-            <div class="txt">💎 Best value — Question Bank + 5 Mock Quizzes</div>
-            <span class="amt">₹350</span>
-          </div>
-          <div class="get-wrap"><a href="https://octopod.co.in/academy/forms/9f7a7ae58c8de1345d51bb55540bfcf6/011ce15113300d66bd982d1fd96193b1" data-ga="Festival Get Now" class="btn btn-pink">Get Now</a></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Prep block B — 60 Min · 60 Questions (College Quiz) -->
-    <div class="prep-block reverse" id="practice-brain">
-      <div class="prep-label">For: <b>60 Minutes · 60 Questions</b> · College Quiz</div>
-      <div class="prep-wrap">
-        <div class="prep-pic"><img src="assets/champions/practice-brain.jpg" alt="How sharp is your brain — online question bank and mock quizzes"></div>
-        <div>
-          <div class="tool-grid">
-            <div class="tool"><div class="t">Question Bank</div><div class="p">₹150</div></div>
-            <div class="tool"><div class="t">3 Mock Quizzes</div><div class="p">₹150</div></div>
-            <div class="tool"><div class="t">5 Mock Quizzes</div><div class="p">₹250</div></div>
-          </div>
-          <div class="bundle">
-            <div class="txt">💎 Best value — Question Bank + 5 Mock Quizzes</div>
-            <span class="amt">₹350</span>
-          </div>
-          <div class="get-wrap"><a href="https://octopod.co.in/academy/forms/9f7a7ae58c8de1345d51bb55540bfcf6/a267ed68156c00d98b8d2e09af594dab" data-ga="College Get Now" class="btn btn-pink">Get Now</a></div>
-        </div>
-      </div>
-    </div>
-
+    <div id="prep-list"></div>
   </div>
 </section>
 
@@ -339,11 +300,12 @@ footer .fine{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:10px}
   </div>
 </section>
 
-<!-- HOW TO PLAY — placeholder until rules are published -->
+<!-- HOW TO PLAY — videos from the dashboard; "Coming Soon" while there are none -->
 <section id="how-to-play">
   <div class="wrap">
     <h2 class="sec-title">How to Play</h2>
-    <div class="play-box">
+    <div class="play-grid" id="play-grid" hidden></div>
+    <div class="play-box" id="play-soon">
       <span class="soon">⏳ Coming Soon</span>
     </div>
   </div>
@@ -360,23 +322,13 @@ footer .fine{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:10px}
       <a href="https://www.instagram.com/studentink.champions/" target="_blank" rel="noopener" data-ga="Instagram Follow" class="btn btn-insta">📸 Follow @studentink.champions</a>
     </div>
 
-    <!-- ============================================================
-         INSTAGRAM POSTS SLIDER — add one line per post, newest first.
-         Copy the link from Instagram (⋯ → Copy link) into data-post.
-         The slider stays hidden until at least one post is listed.
-    ============================================================ -->
+    <!-- INSTAGRAM POSTS SLIDER — posts come from the dashboard (newest first);
+         the slider stays hidden while there are none. -->
     <div class="ig-feed" hidden>
       <h3 class="ig-title">Latest on Instagram</h3>
       <div class="ig-slider">
         <button class="ig-nav ig-prev" aria-label="Previous posts" data-ga="Insta Slider Prev">‹</button>
-        <div class="ig-track">
-          <div class="ig-slide" data-post="https://www.instagram.com/p/Deeg4R9DRbt/"></div>
-          <div class="ig-slide" data-post="https://www.instagram.com/p/DeegDsGjc3F/"></div>
-          <div class="ig-slide" data-post="https://www.instagram.com/p/DeeeuiSjeK8/"></div>
-          <div class="ig-slide" data-post="https://www.instagram.com/p/DeeddRMjVsb/"></div>
-          <div class="ig-slide" data-post="https://www.instagram.com/p/DeeiAdQDV0E/"></div>
-          <div class="ig-slide" data-post="https://www.instagram.com/p/DebG3npDVeR/"></div>
-        </div>
+        <div class="ig-track"></div>
         <button class="ig-nav ig-next" aria-label="Next posts" data-ga="Insta Slider Next">›</button>
       </div>
     </div>
@@ -405,24 +357,181 @@ footer .fine{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:10px}
     l.style.cssText=open?'':'display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:#16228c;padding:20px 24px;gap:16px;border-top:1px solid rgba(255,255,255,.12)';
   });
 
-  // Instagram posts slider: turns each listed post into Instagram's official embed, loads
+  // ==================== PAGE CONTENT ====================
+  // Championships (+ their "Prepare to Win" packs), How to Play videos and Instagram posts are managed
+  // in octopod.co.in → Faculty dashboard → Champions and served by this API (StudentinkWeb repo:
+  // app/Http/Controllers/Api/ChampionsController.php).
+  const CHAMPIONS_API='https://octopod.co.in/api/champions';
+  const INSTAGRAM_URL='https://www.instagram.com/studentink.champions/';
+
+  // Small DOM builder; text always goes in as text (never as HTML), and null/false/'' children are skipped
+  function el(tag,attrs,...children){
+    const node=document.createElement(tag);
+    Object.entries(attrs||{}).forEach(([key,value])=>{
+      if(value==null||value===false) return;
+      if(key==='class') node.className=value;
+      else if(key==='ga') node.dataset.ga=value;
+      else node.setAttribute(key,value===true?'':value);
+    });
+    node.append(...children.filter(child=>child!=null&&child!==false&&child!==''));
+    return node;
+  }
+  // Only absolute http(s) links from the API go into href/src
+  function webLink(url){
+    try{ const parsed=new URL(url); return /^https?:$/.test(parsed.protocol)?parsed.href:null; }
+    catch(e){ return null; }
+  }
+
+  // ---- Registration dates: the API gives Y-m-d (or null); status is worked out against today's date in India ----
+  const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const TODAY=(()=>{
+    const part={};
+    new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'})
+      .formatToParts(new Date()).forEach(p=>part[p.type]=p.value);
+    return part.year+'-'+part.month+'-'+part.day;
+  })();
+  const ymd=value=>/^\d{4}-\d{2}-\d{2}$/.test(value||'')?value:null;
+  const niceDate=(value,withYear=true)=>{
+    const [y,m,d]=value.split('-').map(Number);
+    return d+' '+MONTHS[m-1]+(withYear?' '+y:'');
+  };
+  const daysUntil=value=>{
+    const utc=v=>{const [y,m,d]=v.split('-').map(Number); return Date.UTC(y,m-1,d);};
+    return Math.round((utc(value)-utc(TODAY))/86400000);
+  };
+  // Y-m-d strings compare correctly as text
+  function registrationState(start,end){
+    if(start&&TODAY<start){
+      const days=daysUntil(start);
+      return {key:'upcoming',badge:'Opens soon',note:days===1?'Opens tomorrow':'Opens in '+days+' days'};
+    }
+    if(end&&TODAY>end) return {key:'closed',badge:'Closed',note:null};
+    if(end){
+      const days=daysUntil(end);
+      if(days===0) return {key:'soon',badge:'Last day',note:'⏰ Last day to register — today!'};
+      if(days<=3) return {key:'soon',badge:'Closing soon',note:'⏳ Only '+days+(days===1?' day':' days')+' left'};
+      return {key:'open',badge:'Open',note:'⏳ '+days+' days left to register'};
+    }
+    return {key:'open',badge:'Open',note:null};
+  }
+  function registrationBox(start,end,state){
+    if(!start&&!end) return null;
+    const dateBox=(label,value)=>el('div',{class:'reg-date'},el('span',{},label),el('b',{},niceDate(value)));
+    return el('div',{class:'reg '+state.key},
+      el('div',{class:'reg-top'},el('span',{class:'reg-title'},'📅 Registration'),el('span',{class:'reg-badge'},state.badge)),
+      el('div',{class:'reg-dates'},
+        start?dateBox('Starts',start):null,
+        start&&end?el('span',{class:'reg-arrow','aria-hidden':'true'},'→'):null,
+        end?dateBox('Last date',end):null),
+      state.note?el('div',{class:'reg-note'},state.note):null);
+  }
+
+  function championCard(c){
+    const image=webLink(c.image);
+    const pic=image
+      ? el('div',{class:'pic'},el('img',{src:image,alt:c.imageAlt||c.title,width:1080,height:1350,loading:'lazy'}))
+      : el('div',{class:'draw-tile'},el('div',{class:'emo'},'🏆'),el('div',{class:'ttl'},c.title));
+    const start=ymd(c.registrationStart), end=ymd(c.registrationEnd);
+    const state=registrationState(start,end);
+    // Not open yet / closed: a greyed-out label instead of the registration link
+    const register=state.key==='upcoming'
+      ? el('span',{class:'btn btn-disabled','aria-disabled':'true'},'Opens '+niceDate(start,false))
+      : state.key==='closed'
+        ? el('span',{class:'btn btn-disabled','aria-disabled':'true'},'Registration Closed')
+        : el('a',{href:webLink(c.registerUrl)||'#',class:'btn btn-pink',ga:c.shortName+' Register'},c.registerLabel||'Register');
+    return el('div',{class:'comp'},pic,
+      registrationBox(start,end,state),
+      el('div',{class:'comp-actions'},register,
+        c.practice?el('a',{href:'#practice-'+c.id,class:'btn btn-blue',ga:c.shortName+' Prepare'},'Prepare to Win'):null));
+  }
+
+  function practiceBlock(c,index){
+    const p=c.practice, image=webLink(p.image), items=p.items||[];
+    return el('div',{class:'prep-block'+(index%2?' reverse':''),id:'practice-'+c.id},
+      el('div',{class:'prep-label'},'For: ',el('b',{},p.title),p.tag?' · '+p.tag:null),
+      el('div',{class:'prep-wrap'+(image?'':' no-pic')},
+        image?el('div',{class:'prep-pic'},el('img',{src:image,alt:p.title,width:1080,height:1350,loading:'lazy'})):null,
+        el('div',{},
+          items.length?el('div',{class:'tool-grid'},...items.map(item=>
+            el('div',{class:'tool'},el('div',{class:'t'},item.name),item.price?el('div',{class:'p'},item.price):null))):null,
+          p.bundleText?el('div',{class:'bundle'},el('div',{class:'txt'},'💎 '+p.bundleText),p.bundlePrice?el('span',{class:'amt'},p.bundlePrice):null):null,
+          el('div',{class:'get-wrap'},el('a',{href:webLink(p.url)||'#',class:'btn btn-pink',ga:c.shortName+' Get Now'},'Get Now')))));
+  }
+
+  function videoCard(v){
+    const poster=webLink(v.thumbnail);
+    return el('div',{class:'video-card'},
+      // without a thumbnail, load the first frame so the player isn't a blank box
+      el('video',{src:webLink(v.url),poster:poster,controls:true,playsinline:true,preload:poster?'none':'metadata'}),
+      el('div',{class:'vc-body'},el('h3',{},v.title),v.description?el('p',{},v.description):null));
+  }
+
+  function showMessage(text){
+    const msg=document.getElementById('comp-msg');
+    msg.replaceChildren(text+' ',el('a',{href:INSTAGRAM_URL,target:'_blank',rel:'noopener',ga:'Instagram Follow'},'Follow @studentink.champions'));
+    msg.hidden=false;
+  }
+
+  function render(data){
+    const championships=data.championships||[];
+    const grid=document.getElementById('comp-grid');
+    grid.replaceChildren(...championships.map(championCard));
+    grid.removeAttribute('aria-busy');
+    if(!championships.length) showMessage('New championships are coming soon.');
+
+    const withPractice=championships.filter(c=>c.practice);
+    if(withPractice.length){
+      document.getElementById('prep-list').replaceChildren(...withPractice.map(practiceBlock));
+      document.getElementById('practice').hidden=false;
+    }else{
+      document.querySelectorAll('a[href="#practice"]').forEach(a=>a.hidden=true);
+    }
+
+    const videos=(data.videos||[]).filter(v=>webLink(v.url));
+    if(videos.length){
+      const playGrid=document.getElementById('play-grid');
+      playGrid.replaceChildren(...videos.map(videoCard));
+      playGrid.classList.toggle('single',videos.length===1);
+      playGrid.hidden=false;
+      document.getElementById('play-soon').hidden=true;
+    }
+
+    initInstagram((data.instagramPosts||[]).map(webLink).filter(Boolean));
+
+    // A link like …#practice-3 was opened before that block existed: scroll to it now
+    const target=location.hash.length>1&&document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if(target) target.scrollIntoView();
+  }
+
+  (()=>{
+    const abort=new AbortController();
+    const timer=setTimeout(()=>abort.abort(),15000);
+    fetch(CHAMPIONS_API,{signal:abort.signal})
+      .then(response=>{ if(!response.ok) throw new Error('HTTP '+response.status); return response.json(); })
+      .then(render)
+      .catch(error=>{
+        console.error('Champions content could not be loaded',error);
+        const grid=document.getElementById('comp-grid');
+        grid.replaceChildren();
+        grid.removeAttribute('aria-busy');
+        document.querySelectorAll('a[href="#practice"]').forEach(a=>a.hidden=true);
+        showMessage('Championships could not be loaded right now. Please refresh the page, or see the latest on Instagram.');
+      })
+      .finally(()=>clearTimeout(timer));
+  })();
+
+  // Instagram posts slider: turns each post into Instagram's official embed, loads
   // Instagram's script only when the section is near the screen, then slides every 4 seconds
   // (paused while the visitor's mouse is on it)
-  (()=>{
+  function initInstagram(posts){
     const feed=document.querySelector('.ig-feed');
-    const slides=feed?[...feed.querySelectorAll('.ig-slide[data-post]')]:[];
-    if(!slides.length) return;
-    feed.hidden=false;
-    slides.forEach(slide=>{
-      const q=document.createElement('blockquote');
-      q.className='instagram-media';
-      q.dataset.instgrmPermalink=slide.dataset.post;
-      q.dataset.instgrmVersion='14';
-      q.innerHTML='<a target="_blank" rel="noopener">View this post on Instagram</a>';
-      q.firstChild.href=slide.dataset.post;
-      slide.append(q);
-    });
+    if(!feed||!posts.length) return;
+    const slides=posts.map(url=>el('div',{class:'ig-slide'},
+      el('blockquote',{class:'instagram-media','data-instgrm-permalink':url,'data-instgrm-version':'14'},
+        el('a',{href:url,target:'_blank',rel:'noopener'},'View this post on Instagram'))));
     const track=feed.querySelector('.ig-track');
+    track.replaceChildren(...slides);
+    feed.hidden=false;
     const go=dir=>{
       const max=track.scrollWidth-track.clientWidth, step=slides[0].offsetWidth+20;
       if(dir>0&&track.scrollLeft>=max-5) track.scrollTo({left:0});
@@ -445,7 +554,7 @@ footer .fine{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:10px}
       if(!matchMedia('(prefers-reduced-motion: reduce)').matches)
         setInterval(()=>{if(!paused&&!document.hidden) go(1);},4000);
     },{rootMargin:'300px'}).observe(feed);
-  })();
+  }
 </script>
 
 </body>
