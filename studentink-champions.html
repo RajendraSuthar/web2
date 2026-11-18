@@ -193,7 +193,12 @@ header{position:sticky;top:0;z-index:60;background:rgba(22,34,140,.96);backdrop-
 .insta-box{background:linear-gradient(120deg,#f58529,#dd2a7b 50%,#8134af);border-radius:24px;padding:56px 32px;color:#fff;max-width:760px;margin:0 auto}
 .insta-box h2{font-size:2.2rem;font-weight:700;margin-bottom:8px}
 .insta-box p{opacity:.92;margin-bottom:26px;max-width:460px;margin-left:auto;margin-right:auto}
-.btn-insta{background:#fff;color:#dd2a7b;box-shadow:0 10px 26px rgba(0,0,0,.2)}
+.btn-insta{background:#fff;color:#dd2a7b;box-shadow:0 10px 26px rgba(0,0,0,.2);max-width:100%;justify-content:center;text-align:center}
+/* narrow phones (e.g. 280px): less side padding; the handle can break after "@studentink." (<wbr> in the button) */
+@media(max-width:480px){
+  .insta-box{padding:44px 20px;border-radius:20px}
+  .btn-insta{padding:13px 20px}
+}
 .insta-qr{display:block;width:180px;max-width:60%;height:auto;margin:0 auto 10px;background:#fff;border-radius:16px;padding:8px;box-shadow:0 10px 26px rgba(0,0,0,.2)}
 .insta-scan{font-size:.85rem;opacity:.9;margin-bottom:20px}
 
@@ -328,7 +333,7 @@ footer .fine{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:10px}
       <p>Follow Studentink Champions on Instagram for new championships, sample questions, winners and recognition.</p>
       <img class="insta-qr" src="assets/champions/instagram-qr.png" alt="Instagram QR code for @studentink.champions">
       <div class="insta-scan">Scan to follow, or tap below</div>
-      <a href="https://www.instagram.com/studentink.champions/" target="_blank" rel="noopener" data-ga="Instagram Follow" class="btn btn-insta">📸 Follow @studentink.champions</a>
+      <a href="https://www.instagram.com/studentink.champions/" target="_blank" rel="noopener" data-ga="Instagram Follow" class="btn btn-insta"><span>📸 Follow @studentink.<wbr>champions</span></a>
     </div>
 
     <!-- INSTAGRAM POSTS SLIDER — posts come from the dashboard (newest first);
@@ -506,7 +511,7 @@ footer .fine{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:10px}
 
   function showMessage(text){
     const msg=document.getElementById('comp-msg');
-    msg.replaceChildren(text+' ',el('a',{href:INSTAGRAM_URL,target:'_blank',rel:'noopener',ga:'Instagram Follow'},'Follow @studentink.champions'));
+    msg.replaceChildren(text+' ',el('a',{href:INSTAGRAM_URL,target:'_blank',rel:'noopener',ga:'Instagram Follow'},'Follow @studentink.',el('wbr'),'champions'));
     msg.hidden=false;
   }
 
